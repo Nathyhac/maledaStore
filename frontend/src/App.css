@@ -1,0 +1,100 @@
+.main_container{
+    display: flex;
+    justify-content: center;
+}
+
+.light {
+    background-color: white;
+    color: black;
+}
+
+.dark {
+    background-color: rgb(47, 43, 43);
+    color: white;
+}
+
+.text {
+    font-size: 22px; /* Default size for base screens */
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    background: linear-gradient(to right, cyan, rgb(15, 80, 178)); /* Gradient background */
+    -webkit-background-clip: text; /* Clip the background to text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
+  }
+  
+  @media (min-width: 640px) { /* Equivalent to the `sm` breakpoint in Chakra UI */
+    .text {
+      font-size: 28px;
+    }
+  }
+
+  .form_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+  }
+
+.form_container h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2rem; /* Adjust the size for emphasis */
+    color: #333; /* Darker text for better visibility */
+    margin-bottom: 1.5rem; /* Add spacing between the title and form */
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient text background */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 100%; /* Allow the title to span the container */
+}
+
+.form_container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Slightly larger gap for breathing space */
+    padding: 1.5rem; /* Increase padding for a better layout */
+    border: 1px solid #ddd; /* Softer border */
+    border-radius: 10px; /* More rounded corners */
+    background-color: #f9f9f9; /* Light gray background for subtle contrast */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add hover animation */
+}
+
+.form_container form:hover {
+    transform: scale(1.02); /* Slight enlargement on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.form_container form input,
+.form_container form button {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.form_container form input:focus {
+    outline: none;
+    border-color: #6a11cb; /* Add focus effect */
+    box-shadow: 0 0 6px rgba(106, 17, 203, 0.5);
+}
+
+.form_container form button {
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Stylish gradient button */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.form_container form button:hover {
+    background: linear-gradient(to right, #2575fc, #6a11cb); /* Reverse gradient on hover */
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
