@@ -24,7 +24,7 @@ function CreatePage() {
     toast.success("anouncement created successfully", {
       // position: toast.POSITION.TOP_RIGHT,
     });
-
+   setNewProduct=newProduct
   }
   return (
     <div className='form_container'>

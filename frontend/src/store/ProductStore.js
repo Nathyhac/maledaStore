@@ -5,7 +5,7 @@ export const useProductStore = create((set) => ({
     setProducts: (products) => set({ products }), 
     createProduct: async (newProduct) => {
         if (!newProduct.name || !newProduct.image || !newProduct.price) {
-            return { success: false, message: "All fields must be filled" };
+            return { success: false, message: message };
         }
 
         const res = await fetch("/api/product", {
@@ -23,7 +23,7 @@ export const useProductStore = create((set) => ({
             products: [...state.products, data.data]
         }));
         
-        return {success:true, message:"product created"}
+        return {success:true, message:message}
 
     },
     fetchProducts: async()=>{
@@ -31,6 +31,21 @@ export const useProductStore = create((set) => ({
         const data= await res.json()
         set({products:data.data})
 
+    },
+    deleteProduct:async(pid)=>{
+        const res =  await fetch(`/api/product/${pid}`, {
+            method:"DELETE",
+            headers: {
+                "content-type": "application/json"
+            },
+
+           
+        });
+        const data = await res.json()
+        if(!data.success) return{success:false, message:"unable to delete the product"} 
+
+        set(state=>({products:state.products.filter(product=>product._id!==pid)}))
+        return {success:true, message:data.message}
     }
 
 }))
